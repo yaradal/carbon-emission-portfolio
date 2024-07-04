@@ -2,6 +2,8 @@
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript repository.
+Using Postgres for DB and Prisma for ORM.
+
 ```
 This project includes two endpoints: 
 
@@ -27,6 +29,7 @@ p1dw : 0.05, p2dw : 0.1, p3dw : 0.15, p4dw: 0.25, p5dw: 0.45.
 ```
 ```
 POST /portfolio/checkout
+example: 
 curl --location 'http://localhost:3000/portfolio/checkout' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -62,16 +65,25 @@ curl --location 'http://localhost:3000/portfolio/checkout' \
 }'
 ```
 ```
-I explained through out the code  the steps I did and how I did
-The returned volume can be a bit smaller than the requestedVolume, this is because in the requirement we only deal with whole tons and not fractions
+I explained throughout the code  the steps I did and how I did
+The returned volume can be a bit smaller than the requested volume, this is because the requirement mentioned that it should only handle carbon credits in whole tons, so
+fractional handling is unnecessary.
+Areas that would improve over time:
+Testing is partial and can be enhanced and done better.
+
 ```
 ## Installation
 
+**Dependencies**
+
+   Install dependencies and build the libs you need to run the project:
 ```bash
 $ npm install
 ```
 ## Set Up the database
 ```bash
+#Create a `.env` file to configure the database connection:
+$ cp .env.example .env
 # first run the db reset
 $ npm run db:reset
 # and then run the db migrate
